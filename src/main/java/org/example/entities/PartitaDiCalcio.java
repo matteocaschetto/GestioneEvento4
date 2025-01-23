@@ -1,8 +1,21 @@
 package org.example.entities;
 
+import org.example.enumeration.TipoEvento;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDate;
+
+
+@Entity
+@Table(name = "partite_di_calcio")
+
 public class PartitaDiCalcio extends Evento{
 
+    @Column(nullable = false)
     private String squadradicasa;
+    @Column(nullable = false)
     private String squadraospite;
     private String squadravincente;
     private int golsquadradicasa;
@@ -11,12 +24,13 @@ public class PartitaDiCalcio extends Evento{
     public PartitaDiCalcio() {
     }
 
-    public PartitaDiCalcio(int golsquadraospite, int golsquadradicasa, String squadravincente, String squadraospite, String squadradicasa) {
-        this.golsquadraospite = golsquadraospite;
-        this.golsquadradicasa = golsquadradicasa;
-        this.squadravincente = squadravincente;
-        this.squadraospite = squadraospite;
+    public PartitaDiCalcio(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, String squadradicasa, String squadraospite, String squadravincente, int golsquadradicasa, int golsquadraospite) {
+        super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti);
         this.squadradicasa = squadradicasa;
+        this.squadraospite = squadraospite;
+        this.squadravincente = squadravincente;
+        this.golsquadradicasa = golsquadradicasa;
+        this.golsquadraospite = golsquadraospite;
     }
 
     public String getSquadradicasa() {

@@ -6,6 +6,7 @@ import org.example.dao.LocationDAO;
 import org.example.dao.PartecipazioneDAO;
 import org.example.dao.PersonaDAO;
 import org.example.entities.*;
+import org.example.enumeration.TipoEvento;
 import org.example.enumeration.TipoStato;
 
 import javax.persistence.EntityManager;
@@ -42,8 +43,11 @@ public class Main
         //personaDao.save(p1);
         //  Evento e1 = new Evento("Finale Coppa",LocalDate.of(2025,1,25),"Super finale di coppa", tipoEvento.PUBBLICO,100,locationDao.getbyID(1));
         //  eventoDao.save(e1);
-        Partecipazione p1 = new Partecipazione(personaDao.getById(2),eventoDao.getByID(1), TipoStato.CONFERMATA);
-        partecipazioneDao.save(p1);
+
+        Evento e1 = new Concerto("Vasco Rossi", LocalDate.of(2025, 1 ,28), "ultimo concerto", TipoEvento.PUBBLICO, 100, locationDao.getByID(3), TipoStato.CONFERMATA);
+
+        //Partecipazione p1 = new Partecipazione(personaDao.getById(2),eventoDao.getByID(1), TipoStato.CONFERMATA);
+        //partecipazioneDao.save(p1);
 
 
 

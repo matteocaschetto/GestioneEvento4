@@ -1,10 +1,16 @@
 package org.example.entities;
 
+import org.example.enumeration.TipoEvento;
 import org.example.enumeration.TipoMusica;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
+import java.time.LocalDate;
 
+@Entity
+@Table(name ="concerti")
 public class Concerto extends Evento{
 
 
@@ -15,7 +21,8 @@ public class Concerto extends Evento{
     public Concerto() {
     }
 
-    public Concerto(TipoMusica genere, boolean streaming) {
+    public Concerto(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, TipoMusica genere, boolean streaming) {
+        super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti);
         this.genere = genere;
         this.streaming = streaming;
     }

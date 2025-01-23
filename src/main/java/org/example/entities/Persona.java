@@ -5,6 +5,7 @@ import org.example.enumeration.TipoSesso;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "persone")
@@ -22,6 +23,13 @@ public class Persona {
     private TipoSesso sesso;
     @OneToMany(mappedBy = "persona")
     private List<Partecipazione> listapartecipazioni;
+
+
+    @ManyToMany(mappedBy = "atleti")
+    private Set<GaraDiAtletica> garediatletica;
+
+
+
 
     public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, TipoSesso sesso, List<Partecipazione> listapartecipazioni) {
         this.nome = nome;
